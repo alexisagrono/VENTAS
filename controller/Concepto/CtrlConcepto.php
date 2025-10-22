@@ -22,7 +22,7 @@ class CtrlConcepto extends ConceptoDAO{
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarConcepto" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-edit fa-fw"></i></a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarConcepto">
-            <li><a class="dropdown-item btnShowEdit" href="#!" data-bs-toggle="modal" data-bs-target="#modalEditConcepto" data-url="'.getUrl('Concepto', 'Concepto', 'Data', array('idConcepto' => $rowConcepto['con_id']), 'ajax').'" role="button">Editar</a></li>
+            <li><a class="dropdown-item btnShowEdit" href="#!" data-bs-toggle="modal" data-bs-target="#modalEditConcepto" data-url="'.getUrl('Concepto', 'Concepto', 'getData', array('idConcepto' => $rowConcepto['con_id']), 'ajax').'" role="button">Editar</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item btnShowDelete" href="#!" data-id="'.$rowConcepto['con_id'].'" data-name="'.$rowConcepto['con_descripcion'].'">Eliminar</a></li>      
                     
@@ -56,19 +56,20 @@ class CtrlConcepto extends ConceptoDAO{
         }
        
     }
-     // Archivo: CtrlConcepto.php
-public function getData(){
-    $con_id= $_GET['idConcepto'];
-    $array = [];
-    $rs = ConceptoDAO::getInstance()->findById($con_id);
-    
-    foreach($rs as $key => $rowConcepto){      
-        // Asume que el DAO retorna 'con_id', 'con_descripcion', 'con_estado'
-        $array['idconcepto'] = $rowConcepto['con_id'];       // Se mapea con_id a idconcepto (para JS)
-        $array['descripcion'] = $rowConcepto['con_descripcion']; // Se mapea con_descripcion a descripcion (para JS) 
-        $array['estado'] = $rowConcepto['con_estado'];     // Se mapea con_estado a estado (para JS)
-    }        
-    echo json_encode($array);
-}
+     public function getData(){
+        $con_id= $_GET['idConcepto'];
+        $array = [];
+        $rs = ConceptoDAO::getInstance()->findById($con_id);
+        foreach($rs as $key => $rowConcepto){          
+           
+            $array['idconcepto'] = $rowConcepto['idconcepto'];          
+            $array['descripcion'] = $rowConcepto['descripcion'];    
+            $array['estado'] = $rowConcepto['estado'];    
+       
+        }        
+        echo json_encode($array);
+       
+    }
+
 }
          
