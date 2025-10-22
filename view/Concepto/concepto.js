@@ -34,8 +34,8 @@ var showModalsConcepto = function (tbody, table) {
             url: url,
             dataType: "JSON",
             success: function (rs) {
-                console.log(rs);
-                $("#idConceptoEdit").val(rs.idConcepto);
+            console.log(rs);
+                $("#idconceptoEdit").val(rs.idconcepto);
                 $("#descripcionEdit").val(rs.descripcion);
                 $("#estadoEdit").val(rs.estado);
               

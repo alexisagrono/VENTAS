@@ -56,20 +56,19 @@ class CtrlConcepto extends ConceptoDAO{
         }
        
     }
-     public function getData(){
-        $con_id= $_GET['idConcepto'];
-        $array = [];
-        $rs = ConceptoDAO::getInstance()->findById($con_id);
-        foreach($rs as $key => $rowConcepto){          
-           
-            $array['idconcepto'] = $rowConcepto['idconcepto,'];          
-            $array['descripcion'] = $rowConcepto['descripcion'];    
-            $array['estado'] = $rowConcepto['estado'];    
-       
-        }        
-        echo json_encode($array);
-       
-    }
-
+     // Archivo: CtrlConcepto.php
+public function getData(){
+    $con_id= $_GET['idConcepto'];
+    $array = [];
+    $rs = ConceptoDAO::getInstance()->findById($con_id);
+    
+    foreach($rs as $key => $rowConcepto){      
+        // Asume que el DAO retorna 'con_id', 'con_descripcion', 'con_estado'
+        $array['idconcepto'] = $rowConcepto['con_id'];       // Se mapea con_id a idconcepto (para JS)
+        $array['descripcion'] = $rowConcepto['con_descripcion']; // Se mapea con_descripcion a descripcion (para JS) 
+        $array['estado'] = $rowConcepto['con_estado'];     // Se mapea con_estado a estado (para JS)
+    }        
+    echo json_encode($array);
+}
 }
          

@@ -54,7 +54,7 @@ class ModalsConcepto{
                     <form name="frmUpdateConcepto" action="<?php echo getUrl('Concepto', 'Concepto', 'postUpdate');?>" method="post">
                         <div class="mb-3">
                             <label for="codigo" class="from-label">codigo</label><br>
-                            <input type="number" name="idConceptoEdit" id="idConceptoEdit" class="form-control" require><br>                        
+                            <input type="number" name="idconceptoEdit" id="idconceptoEdit" class="form-control" require><br>                        
                         </div>
                         <div class="mb-3">
                             <label for="nombre" class="from-label">descripcion</label><br>

@@ -35,8 +35,8 @@ var showModalsCiudad = function (tbody, table) {
             success: function (rs) {
                 //console.log(rs);//INTENTO NUMERO DE CAMBIO numero 1, ahora vamos en el 2
                 $("#idCiudadEdit").val(rs.id);
-                $("#nameCiudadEdit").val(rs.nombre);
-                $("#idDeptoEdit").val(rs.idDepto);
+                $("#NameCiudadEdit").val(rs.nombre);
+                $("#idDepartamentoEdit").val(rs.idDepto);
                 $("#habitantesEdit").val(rs.habitantes);
             },
         });

@@ -71,11 +71,11 @@ class ModalsCiudad{
                         </div>
                         <div class="mb-3">
                             <label for="nombre" class="from-label">nombre</label><br>
-                            <input type="text" name="nameCiudadEdit" id="nameCiudadEdit" class="form-control" require>
+                            <input type="text" name="NameCiudadEdit" id="NameCiudadEdit" class="form-control" require>
                         </div>
                         <div class="mb-3">
-                            <label for="codigo" class="from-label">codigo</label><br>
-                            <input type="number" name="idDeptoEdit" id="idDeptoEdit" class="form-control" require><br>
+                            <label for="Departamento" class="from-label">codigo</label><br>
+                            <input type="number" name="idDepartamentoEdit" id="idDeptoEdit" class="form-control" require><br>
                         </div>
                         <div class="mb-3">
                             <label for="habitantes" class="from-label">habitantes</label><br>
