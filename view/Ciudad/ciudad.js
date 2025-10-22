@@ -33,7 +33,7 @@ var showModalsCiudad = function (tbody, table) {
             url: url,
             dataType: "JSON",
             success: function (rs) {
-                //console.log(rs);//INTENTO NUMERO DE CAMBIO
+                //console.log(rs);//INTENTO NUMERO DE CAMBIO numero 1, ahora vamos en el 2
                 $("#idCiudadEdit").val(rs.id);
                 $("#nameCiudadEdit").val(rs.nombre);
                 $("#idDeptoEdit").val(rs.idDepto);
