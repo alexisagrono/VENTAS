@@ -6,7 +6,7 @@ class CtrlConcepto extends ConceptoDAO{
         include_once '../view/Concepto/ViewConcepto.php';
          
 
-        ViewConcepto::getRead();
+        viewConcepto::getRead();
     
      }
 
