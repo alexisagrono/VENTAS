@@ -63,6 +63,7 @@ class CtrlConcepto extends ConceptoDAO{
         foreach($rs as $key => $rowConcepto){          
            
             $array['idconcepto'] = $rowConcepto['idconcepto'];          
+            
             $array['descripcion'] = $rowConcepto['descripcion'];    
             $array['estado'] = $rowConcepto['estado'];    
        

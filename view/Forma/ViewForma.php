@@ -20,7 +20,6 @@ class viewForma{
                                         <th>CODIGO CONCEPTO</th>
                                         <th>TIPO PAGO</th>
                                         <th>ESTADO CONCEPTO</th>
-                                        
                                         <th>ACCION</th>
                                         
                                         </tr>

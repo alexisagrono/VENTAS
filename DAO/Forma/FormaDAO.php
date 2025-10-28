@@ -12,15 +12,7 @@ class FormaDAO extends Connection {
     }
 
 public function getAll(){
-    $sql = "SELECT 
-                forma_pago.fp_id,
-                forma_pago.fp_descripcion,
-                forma_pago.fp_estado,
-                concepto.con_id,
-                concepto.con_descripcion AS con_descripcion,
-                concepto.con_estado AS con_estado
-            FROM forma_pago
-            INNER JOIN concepto ON concepto.con_id = concepto.con_id";
+    $sql = "SELECT forma_pago.fp_id, forma_pago.fp_descripcion, forma_pago.fp_estado, concepto.con_id, concepto.con_descripcion AS con_descripcion, concepto.con_estado AS con_estado FROM forma_pago INNER JOIN concepto ON forma_pago.fp_id = concepto.con_id";
     return $this->execute($sql);
 }
     
@@ -29,7 +21,7 @@ public function getAll(){
         try {
          
             $sql = "INSERT INTO forma_pago(fp_id, fp_descripcion, fp_estado, con_id, con_descripcion, con_estado) VALUES ('" . $fp_id . "','" . $fp_descripcion . "','" . $fp_estado . "','" . $con_id . "','".$con_descripcion."','".$con_estado."')";
- $result = $this->execute($sql);
+             $result = $this->execute($sql);
             $rs=1;
         }catch (PDOException $exc) {
            

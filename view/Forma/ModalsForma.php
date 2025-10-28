@@ -38,7 +38,7 @@ class ModalsForma{
  
                     <div class="mb-3">
                         <label for="codigo" class="from-label">Codigo</label><br>
-                        <input type="number" name="idconcepto" id="idconcepto" class="form-control" require><br>
+                        <input type="number" name="idConcepto" id="idConcepto" class="form-control" require><br>
                     </div>
                     <div class="mb-3">
                         <label for="nombre" class="from-label">Descripcion</label><br>
@@ -103,7 +103,7 @@ class ModalsForma{
 
                     <div class="mb-3">
                         <label for="idconceptoEdit" class="form-label">Código Concepto</label>
-                        <input type="number" name="idconceptoEdit" id="idconceptoEdit" class="form-control" required>
+                        <input type="number" name="idConceptoEdit" id="idConceptoEdit" class="form-control" required>
                     </div>
 
                     <div class="mb-3">

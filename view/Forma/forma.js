@@ -39,7 +39,7 @@ var showModalsForma = function (tbody, table) {
             success: function (rs) {
                 console.log(rs);
 
-                $("#idFormaEdit").val(rs.idForma);
+              
                 $("#idFormaEdit").val(rs.idForma);
                 $("#fpDescripcionEdit").val(rs.fpDescripcion);
                 $("#fpEstadoEdit").val(rs.fpEstado);

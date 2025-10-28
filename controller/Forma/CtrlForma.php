@@ -70,7 +70,7 @@ class CtrlForma extends FormaDAO{
          
             $array['idForma'] = $rowForma['fp_id'];  
             $array['fpDescripcion'] = $rowForma['fp_descripcion'];
-            $array ['fpEstado'] = $rowForma['fp_estado']; 
+            $array['fpEstado'] = $rowForma['fp_estado']; 
             $array['idConcepto'] = $rowForma['con_id'];
             $array['descripcion'] = $rowForma['con_descripcion'];
             $array['estado'] = $rowForma['con_estado']; 
