@@ -63,13 +63,37 @@ class CtrlConcepto extends ConceptoDAO{
         foreach($rs as $key => $rowConcepto){          
            
             $array['idconcepto'] = $rowConcepto['idconcepto'];          
-            
             $array['descripcion'] = $rowConcepto['descripcion'];    
             $array['estado'] = $rowConcepto['estado'];    
        
         }        
         echo json_encode($array);
        
+    }
+         public function postUpdate()
+    {
+        $con_id = $_POST['idconceptoEdit'];
+        $con_descripcion = $_POST['descripcionEdit'];
+        $con_estado = $_POST['estadoEdit'];
+        $rs = ConceptoDAO::getInstance()->update($con_id, $con_descripcion, $con_estado);
+        if ($rs == 1) {
+            //Mensaje de registro Exitoso
+            echo '<script>setTimeout(function(){ postCreate("\\u00A1Atenci\\u00f3n!", "Registro Exitoso !!!", "success", "#F57F17", "javascript:history.back()");}, 1000 );</script>';
+        } else {
+            //Mensaje de error
+        }
+        redirect(getUrl('Concepto', 'Concepto', 'read'));
+
+    }
+    public function postDelete()
+    {
+          $con_id = $_POST['idConcepto'];
+
+        $rs = ConceptoDAO::getInstance()->delete($con_id);
+
+        echo json_encode($rs);
+
+
     }
 
 }

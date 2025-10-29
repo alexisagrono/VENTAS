@@ -55,12 +55,36 @@ var showModalsConcepto = function (tbody, table) {
             confirmButtonText: 'Sí, anular',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
-            if (result.isConfirmed) {
-                
-                 Swal.fire({
-                    title: `Anulacion exitosa`,
-                    text: `se realizó la anulacion del registro de ${con_descripcion}`,
-                    icon: "success"});
+             if (result.isConfirmed) {
+                $.ajax({
+                    url: "ajax.php?module=Concepto&controller=Concepto&function=postDelete",
+                    data: {
+                        idConcepto: con_id
+
+                    },
+                    type: "POST",
+                    dataType: "JSON",
+                    success: function (rs) {
+                        if (rs == 1) {
+                            Swal.fire({
+                            title: "Concepto",
+                            text: `Se anulo con exitoel Concepto de pago ${con_descripcion}.`,
+                            icon: "success",
+                            confirmButtonText: "Aceptar"
+                        }).then(() => {
+                            window.location.href = "index.php?module=Concepto&controller=Concepto&function=read";
+                        });
+                    }
+                    else
+                    { Swal.fire({
+                    title: `Forma`,
+                    text: `No fue posible anular el registro del Concepto ${con_descripcion}`,
+                    icon: "error"
+                });
+                        
+                    }
+                },
+                    }); 
             } else {
                 Swal.fire({
                     title: `Cancelación de Funcionalidad`,

@@ -31,9 +31,33 @@ class ConceptoDAO extends Connection {
         $result = $this->execute($sql);
         return $result;
     }catch(PDOException $exc) {
-        die('Error findByCon_id() ConceptoDAO:<br/>' . $exc->getMessage());
+        die('Error findByid() ConceptoDAO:<br/>' . $exc->getMessage());
         $rs=0;
     }
 }
-    
+    public function update($con_id,$con_descripcion,$con_estado){
+        $rs="";
+        try {
+            $sql = "UPDATE concepto  SET con_descripcion = '$con_descripcion', con_estado = '$con_estado' WHERE con_id = '$con_id'";
+        $result = $this->execute($sql);
+        $rs = 1;
+
+        }catch (PDOException $exc) {
+            die('Error update() ConceptoDAO:<br/>' . $exc->getMessage());
+            $rs=0;
+        }
+        return $rs;
+    }
+     public function delete($con_id){
+        $rs="";
+        try {
+            $sql = "delete from concepto where  con_id ='".$con_id."'";
+            $result = $this->execute($sql);
+            $rs=1;
+        }catch (PDOException $exc) {
+            die('Error delete()  ConceptoDAO:<br/>' . $exc->getMessage());
+            $rs=0;
+        }
+        return $rs;
+    }
 }
