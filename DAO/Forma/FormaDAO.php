@@ -12,15 +12,17 @@ class FormaDAO extends Connection {
     }
 
 public function getAll(){
-    $sql = "SELECT forma_pago.fp_id, forma_pago.fp_descripcion, forma_pago.fp_estado, concepto.con_id, concepto.con_descripcion AS con_descripcion, concepto.con_estado AS con_estado FROM forma_pago INNER JOIN concepto ON forma_pago.fp_id = concepto.con_id";
-    return $this->execute($sql);
+    $sql = "SELECT * FROM forma_pago";
+        $result = $this->execute($sql);
+        return $result;
+    
 }
     
-    public function add($fp_id, $fp_descripcion, $fp_estado, $con_id, $con_descripcion, $con_estado){
+    public function add($fp_id, $fp_descripcion, $fp_estado){
         $rs="";
         try {
          
-            $sql = "INSERT INTO forma_pago(fp_id, fp_descripcion, fp_estado, con_id, con_descripcion, con_estado) VALUES ('" . $fp_id . "','" . $fp_descripcion . "','" . $fp_estado . "','" . $con_id . "','".$con_descripcion."','".$con_estado."')";
+            $sql = "INSERT INTO forma_pago(fp_id, fp_descripcion, fp_estado) VALUES ('" . $fp_id . "','" . $fp_descripcion . "','" . $fp_estado . "')";
              $result = $this->execute($sql);
             $rs=1;
         }catch (PDOException $exc) {
@@ -31,22 +33,41 @@ public function getAll(){
         return $rs;
     }
 
-   public function findById($fp_id){
-    try {
-        $sql = "SELECT 
-                    forma_pago.fp_id,
-                    forma_pago.fp_descripcion,
-                    forma_pago.fp_estado,
-                    concepto.con_id,
-                    concepto.con_descripcion AS con_descripcion,
-                    concepto.con_estado AS con_estado
-                FROM forma_pago
-                INNER JOIN concepto ON forma_pago.con_id = concepto.con_id
-                WHERE forma_pago.fp_id = '$fp_id'";
-        $result = $this->execute($sql);
-        return $result;
-    } catch (PDOException $exc) {
-        die('Error findById() formaDAO:<br/>' . $exc->getMessage());
+ public function findById($fp_id){
+        try{
+       $sql = "SELECT * FROM forma_pago WHERE fp_id = '".$fp_id."'";
+         $result = $this->execute($sql);
+         return $result;
+        }catch(PDOException $exc) {
+            die('Error findById() FormaDAO:<br/>' . $exc->getMessage());
+            $rs=0;
+        }
     }
-}
+public function update($fp_id,$fp_descripcion,$fp_estado){
+        $rs="";
+        try {
+            $sql = "UPDATE forma_pago  SET fp_descripcion = '$fp_descripcion', fp_estado = '$fp_estado' WHERE fp_id = '$fp_id'";
+        $result = $this->execute($sql);
+        $rs = 1;
+
+        }catch (PDOException $exc) {
+            die('Error update() FormaDAO:<br/>' . $exc->getMessage());
+            $rs=0;
+        }
+        return $rs;
+    }
+     public function delete($fp_id){
+        $rs="";
+        try {
+            $sql = "delete from forma_pago where  fp_id ='".$fp_id."'";
+            $result = $this->execute($sql);
+            $rs=1;
+        }catch (PDOException $exc) {
+            die('Error delete()  FormaDAO:<br/>' . $exc->getMessage());
+            $rs=0;
+        }
+        return $rs;
+    }
+    
+    
 }

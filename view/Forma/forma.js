@@ -19,9 +19,6 @@ var listForma = function () {
             { "data": "idForma" },
             { "data": "fpDescripcion" },
             { "data": "fpEstado" },
-            { "data": "idConcepto" },
-            { "data": "descripcion" },
-            { "data": "estado" },
             { "data": "buttons" }
 
 
@@ -39,13 +36,11 @@ var showModalsForma = function (tbody, table) {
             success: function (rs) {
                 console.log(rs);
 
-              
-                $("#idFormaEdit").val(rs.idForma);
-                $("#fpDescripcionEdit").val(rs.fpDescripcion);
-                $("#fpEstadoEdit").val(rs.fpEstado);
-                $("#idconceptoEdit").val(rs.idConcepto);
-                $("#descripcionEdit").val(rs.descripcion);
-                $("#estadoEdit").val(rs.estado);
+
+                $("#idFormaEdit").val(rs.fp_id);
+                $("#fpDescripcionEdit").val(rs.fp_descripcion);
+                $("#fpEstadoEdit").val(rs.fp_estado);
+
 
 
             },
@@ -65,14 +60,36 @@ var showModalsForma = function (tbody, table) {
             confirmButtonText: 'Sí, anular',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
-            if (result.isConfirmed) {
+       if (result.isConfirmed) {
+                $.ajax({
+                    url: "ajax.php?module=Forma&controller=Forma&function=postDelete",
+                    data: {
+                        idForma: fp_id
 
-                Swal.fire({
-                    title: `Anulacion exitosa`,
-                    text: `se realizó la anulacion del registro de ${fp_descripcion}`,
-                    icon: "success"
+                    },
+                    type: "POST",
+                    dataType: "JSON",
+                    success: function (rs) {
+                        if (rs == 1) {
+                            Swal.fire({
+                            title: "Forma",
+                            text: `Se anulo con exito la Forma de pago ${fp_descripcion}.`,
+                            icon: "success",
+                            confirmButtonText: "Aceptar"
+                        }).then(() => {
+                            window.location.href = "index.php?module=Forma&controller=Forma&function=read";
+                        });
+                    }
+                    else
+                    { Swal.fire({
+                    title: `Forma`,
+                    text: `No fue posible anular el registro de forma${fp_descripcion}`,
+                    icon: "error"
                 });
-            } else {
+                        
+                    }
+                },
+                    }); } else {
                 Swal.fire({
                     title: `Cancelación de Funcionalidad`,
                     text: `No se realizó la anulacion del registro de ${fp_descripcion}`,

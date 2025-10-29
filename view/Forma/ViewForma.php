@@ -3,7 +3,7 @@ class viewForma{
      public static function getRead(){
         ?>
         <div class="container-fluid px-4">
-                <h1 class="mt-4">Coprobante de Egreso</h1>
+                <h1 class="mt-4">Forma</h1>
                 <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Listar</li>
                 </ol>
@@ -14,26 +14,22 @@ class viewForma{
                         <table id="dt_forma" class="table table-bordered table-hover">
                                 <thead>
                                         <tr>
-                                        <th>CODIGO FORMA </th>
+                                        <th>CODIGO</th>
                                         <th>DESCRIPCION</th>
-                                        <th>ESTADO FORMA</th>
-                                        <th>CODIGO CONCEPTO</th>
-                                        <th>TIPO PAGO</th>
-                                        <th>ESTADO CONCEPTO</th>
-                                        <th>ACCION</th>
-                                        
+                                        <th>ESTADO</th>
+                                        <th>ACCIONES</th>
                                         </tr>
                                 </thead>
                                 <tbody></tbody>
                                 </table>
                 </div>
         </div>
-     
+        <script type="text/javascript" src="../View/Forma/forma.js"></script>
+
     <?php
     ModalsForma::modalCreate();
-    ModalsForma::modalEdit();
-    
+     ModalsForma::modalEdit();
     } 
+
+   
 }
-?>
- <script type="text/javascript" src="../View/Forma/forma.js"></script>

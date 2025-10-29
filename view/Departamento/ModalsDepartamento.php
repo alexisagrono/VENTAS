@@ -51,7 +51,7 @@ class ModalsDepartamento{
                   </div>
                   <div class="mb-3">
                       <label for="nombre" class="from-label">nombre</label><br>
-                      <input type="text" name="nameDeptoEdit" id="nameDeptoEdit" class="form-control" require>
+                      <input type="text" name="nomDeptoEdit" id="nomDeptoEdit" class="form-control" require>
                   </div>
                 </div>
                 <div class="modal-footer">

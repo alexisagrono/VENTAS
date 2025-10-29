@@ -24,5 +24,40 @@ class DepartamentoDAO extends Connection {
         }
         return $rs;
     }
+    public function findById($id){
+        try{
+       $sql = "SELECT * FROM departamento WHERE id = '".$id."'";
+         $result = $this->execute($sql);
+         return $result;
+        }catch(PDOException $exc) {
+            die('Error findById() DepartamentoDAO:<br/>' . $exc->getMessage());
+            $rs=0;
+        }
+    }
+    public function update($id,$name){
+        $rs="";
+        try {
+            $sql = "update departamento set nombre ='".$name."'  where  id ='".$id."'";
+            $result = $this->execute($sql);
+            $rs=1;
+        }catch (PDOException $exc) {
+            die('Error update() DepartamentoDAO:<br/>' . $exc->getMessage());
+            $rs=0;
+        }
+        return $rs;
+    }
+     public function delete($id){
+        $rs="";
+        try {
+            $sql = "delete from departamento where  id ='".$id."'";
+            $result = $this->execute($sql);
+            $rs=1;
+        }catch (PDOException $exc) {
+            die('Error delete() DepartamentoDAO:<br/>' . $exc->getMessage());
+            $rs=0;
+        }
+        return $rs;
+    }
+    
     
 }
