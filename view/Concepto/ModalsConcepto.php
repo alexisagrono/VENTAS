@@ -21,10 +21,14 @@ class ModalsConcepto{
                         <label for="nombre" class="from-label">Descripcion</label><br>
                         <input type="text" name="descripcion" id="descripcion" class="form-control" require>
                     </div>
-                     <div class="mb-3">
-                        <label for="nombre" class="from-label">Estado</label><br>
-                        <input type="text" name="estado" id="estado" class="form-control" require><br>
-                      </div>
+
+                                <label for="estado" class="form-label">Estado</label>
+                                <select name="estado" id="estado" class="form-control" required>
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="Activo">Activo</option>
+                                    <option value="Inacitvo">Inactivo</option>
+                                </select>
+                            </div>
                     
                   </div>
                   <div class="modal-footer">
