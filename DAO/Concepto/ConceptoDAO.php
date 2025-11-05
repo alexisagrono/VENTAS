@@ -26,7 +26,7 @@ class ConceptoDAO extends Connection {
     }
     public function findById($con_id){
     try{
-        // Usar AS para que los nombres de las columnas coincidan con el array del controlador
+    
         $sql = "SELECT con_id AS idconcepto, con_descripcion AS descripcion, con_estado AS estado FROM concepto WHERE con_id = '".$con_id."'";
         $result = $this->execute($sql);
         return $result;
