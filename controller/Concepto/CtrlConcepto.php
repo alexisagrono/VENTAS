@@ -39,6 +39,7 @@ class CtrlConcepto extends ConceptoDAO{
 
          public function postNew()
     {
+        
         $con_id = $_POST['idconcepto'];        
         $con_descripcion = $_POST['descripcion'];
         $con_estado= $_POST['estado'];           
